@@ -55,7 +55,40 @@ Transparency is bar state rather than theme state, so that switch goes through
 | Bar swatch | left = open the picker · right = reset to the theme |
 | Panel | `←`/`→` walk the hue · `↑`/`↓` the brightness |
 | Panel | `c` match text color · `t` transparent bar · `r` reset · `Esc` close |
-| Anywhere | `omarchy-shell bar-color toggle` — bind it to a key |
+| Anywhere | `SUPER + SHIFT + CTRL + B` — see [Keybinding](#keybinding) |
+
+## Keybinding
+
+The panel answers to IPC, so any key can summon it. Omarchy keeps user bindings
+in `~/.config/hypr/bindings.lua`:
+
+```lua
+o.bind("SUPER + SHIFT + CTRL + B", "Bar color", "omarchy-shell bar-color toggle")
+```
+
+Hyprland reloads on save; `hyprctl configerrors` should stay quiet afterwards.
+
+That combo is the suggestion rather than a requirement: it is free on a stock
+Omarchy install and shares its modifiers with the theme menu (`SUPER + SHIFT +
+CTRL + SPACE`), which is the same kind of change. Check any alternative is free
+first — `omarchy menu keybindings --print` — and unbind the default before
+reusing one, or both fire:
+
+```lua
+hl.unbind("SUPER + CTRL + B")   -- was: Bluetooth
+o.bind("SUPER + CTRL + B", "Bar color", "omarchy-shell bar-color toggle")
+```
+
+The IPC target also takes `open`, `close` and `show`/`hide`, so a script can
+summon the panel without a key:
+
+```sh
+omarchy-shell bar-color toggle
+```
+
+On a multi-monitor setup the popup appears on whichever bar instance owns the
+IPC target, which is not necessarily the focused screen. Clicking the swatch
+always opens it on the screen you clicked.
 
 ## Install
 
