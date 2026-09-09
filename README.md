@@ -60,9 +60,61 @@ Transparency is bar state rather than theme state, so that switch goes through
 ## Install
 
 ```sh
-omarchy plugin add <repo-url> --enable --yes    # or copy into ~/.config/omarchy/plugins/
-omarchy bar move fixlixpender.bar-color --section right
+omarchy plugin add https://github.com/fixlixpender/omarchy-bar-color.git --enable --yes
 ```
+
+That clones into `~/.config/omarchy/plugins/fixlixpender.bar-color/` and puts the
+swatch on the right of the bar. Drop `--enable --yes` to land it disabled and
+confirm each step instead — plugins run as unsandboxed code inside
+`omarchy-shell`, so reading it first is the careful path:
+
+```sh
+omarchy plugin add https://github.com/fixlixpender/omarchy-bar-color.git
+$EDITOR ~/.config/omarchy/plugins/fixlixpender.bar-color/Panel.qml
+omarchy plugin enable fixlixpender.bar-color
+```
+
+To place it somewhere else on the bar:
+
+```sh
+omarchy bar move fixlixpender.bar-color --section right --index 0
+omarchy bar move fixlixpender.bar-color --after omarchy.tray     # or relative to a neighbour
+```
+
+Installing by hand works too — copy the folder into
+`~/.config/omarchy/plugins/`, then `omarchy-shell shell rescanPlugins` and
+`omarchy plugin enable fixlixpender.bar-color`.
+
+## Update
+
+```sh
+omarchy plugin update fixlixpender.bar-color    # shows a diff, then fast-forwards
+```
+
+## Remove
+
+**Reset the color first**, while there is still a UI for it — click *Reset to
+theme* in the panel, or right-click the swatch. Removing the plugin does not
+touch `~/.config/omarchy/shell.toml`, so an override left behind keeps
+recoloring the bar with nothing left to change it:
+
+```sh
+omarchy plugin remove fixlixpender.bar-color --yes
+```
+
+That disables the widget, unloads it from the running shell, and deletes the
+folder. Because the folder is a git checkout it is deleted outright rather than
+backed up — the repo is still upstream, so re-adding it is one command.
+
+To keep it installed and just take it off the bar:
+
+```sh
+omarchy plugin disable fixlixpender.bar-color
+```
+
+If you removed the plugin with a color still set, undo it by hand — delete the
+`[bar]` keys this plugin wrote from `~/.config/omarchy/shell.toml`. The bar
+follows the theme again as soon as the file is saved.
 
 ## Notes
 
