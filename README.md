@@ -4,6 +4,8 @@ Recolor the Omarchy bar from the bar itself. A swatch sits on the right side of
 the bar showing the color the bar is currently wearing; click it for the
 picker.
 
+![the bar swatch, following the theme and recolored](screenshots/bar-swatch.png)
+
 ![the panel](screenshots/panel.png)
 
 - **Hue/saturation field and hue rail** — the standard HSV square, live while
