@@ -3,7 +3,7 @@
   "id": "fixlixpender.bar-color",
   "name": "Bar Color",
   "version": "1.0.0",
-  "author": "filipe",
+  "author": "Filipe Oliveira",
   "license": "MIT",
   "description": "Recolor the Omarchy bar from the bar itself. A hue/saturation picker with the active theme's own palette as presets, an opacity slider, a transparency switch, and bar text that keeps itself readable against whatever you pick. The choice is written to ~/.config/omarchy/shell.toml, so it applies live and survives theme switches and updates.",
   "kinds": [
