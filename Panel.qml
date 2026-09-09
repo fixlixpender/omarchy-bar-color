@@ -16,7 +16,7 @@ import "Model.js" as Model
 // stuttering a drag in flight.
 Panel {
   id: root
-  moduleName: "filipe.bar-color"
+  moduleName: "fixlixpender.bar-color"
   ipcTarget: "bar-color"
   // manageIpc: false so this panel owns the single IpcHandler the target
   // permits, and `omarchy-shell bar-color toggle` can bind to a key.

@@ -59,7 +59,7 @@ Transparency is bar state rather than theme state, so that switch goes through
 
 ```sh
 omarchy plugin add <repo-url> --enable --yes    # or copy into ~/.config/omarchy/plugins/
-omarchy bar move filipe.bar-color --section right
+omarchy bar move fixlixpender.bar-color --section right
 ```
 
 ## Notes

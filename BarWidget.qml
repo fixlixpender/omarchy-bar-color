@@ -7,7 +7,7 @@ import qs.Ui
 // transparent bar leaves the swatch hollow, which is the truth about it.
 BarWidget {
   id: root
-  moduleName: "filipe.bar-color"
+  moduleName: "fixlixpender.bar-color"
 
   implicitWidth: button.implicitWidth
   implicitHeight: button.implicitHeight
